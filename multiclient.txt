@@ -1,0 +1,16 @@
+import java.net.*;
+import java.util.*;
+class client1{
+        public static void main(String args[]) throws Exception {
+                byte[] array1=new byte[100];
+           MulticastSocket ms=new MulticastSocket(1500);
+           InetAddress grp=InetAddress.getByName("225.6.7.11");
+            ms.joinGroup(grp);
+                DatagramPacket rp=new DatagramPacket(array1,array1.length);
+                ms.receive(rp);
+              
+
+                      String str=new String(array1);
+                       System.out.println("FROM server "+str+" is received");
+        }
+}

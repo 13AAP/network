@@ -1,0 +1,54 @@
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+
+int a[]={0,1,2,3,4,5,6,7,0,1,2};
+char b[]={&#39;G&#39;,&#39;O&#39;,&#39;O&#39;,&#39;D&#39;,&#39;M&#39;,&#39;O&#39;,&#39;R&#39;,&#39;N&#39;,&#39;I&#39;,&#39;N&#39;,&#39;G&#39;};
+int i,j,n=0;
+int sl=0,sf=7;
+
+void sender()
+{
+if(n&lt;11)
+{
+for (j=sl;j&lt;sl+sf;j++)
+{
+if(j&gt;10)
+{break;}
+printf(&quot;\n Sending Data : %d frame and %c data &quot;,a[j],b[j]);
+}
+}
+else
+{printf(&quot;\n All data sent&quot;);}
+printf(&quot;\n&quot;);
+receiver();
+
+}
+
+void receiver()
+{
+int r,x=0;
+r=(rand()%7)+1;
+printf(&quot;\n Acknowledment : %d&quot;,r);
+for (i=n;i&lt;n+7;i++)
+{
+if(i&gt;10)
+{break;}
+if(a[i]!=r)
+{
+x=x+1;
+printf(&quot;\n Recieving data : %d Frame and %c data &quot;,a[i],b[i]);}
+else
+{break;}
+}
+printf(&quot;\n&quot;);
+n=n+x;
+sl=n;
+if(n&lt;11)
+{sender();}
+else
+{printf(&quot;\n All Data Received&quot;);}
+}
+void main()
+{
+sender();
+}

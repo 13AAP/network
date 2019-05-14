@@ -1,0 +1,21 @@
+import java.net.*;
+import java.io.*;
+public class ownip
+{
+public static void main(String args[])
+{
+System.out.println("Pinging status");
+try
+{
+InetAddress IPA=InetAddress.getLocalHost();
+System.out.println("Sending ping request to " +IPA);
+String hostname=IPA.getHostName();
+System.out.println("Hostname:"+hostname);
+System.out.println("Host address: "+IPA.getHostAddress());
+}
+catch(Exception e)
+{
+System.out.println("Host does not exist="+e.getMessage());
+}
+}
+}

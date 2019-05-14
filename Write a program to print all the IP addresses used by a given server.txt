@@ -1,0 +1,36 @@
+import java.net.*;
+
+import java.io.*;
+
+public class allbyname
+
+{
+
+public static void main(String args[])
+{
+
+System.out.println("Pinging status");
+
+try
+
+{
+
+InetAddress[] IPA=InetAddress.getAllByName("at23");
+
+for(int i=0;i<IPA.length;i++)
+
+{System.out.println(IPA[i]);}
+
+}
+
+catch(Exception e)
+
+{
+
+System.out.println("Host does not exist="+e.getMessage());
+
+}
+
+}
+
+}

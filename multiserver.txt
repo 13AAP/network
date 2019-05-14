@@ -1,0 +1,16 @@
+import java.net.*;
+import java.util.*;
+class multiser {
+        public static void main(String args[]) throws Exception {
+                String st;
+                byte[] array=new byte[100];
+                Scanner sc=new Scanner(System.in);
+                st=sc.nextLine();
+                array=st.getBytes();
+                int l=array.length;
+                InetAddress ip=InetAddress.getByName("225.6.7.11");
+                DatagramSocket s=new DatagramSocket();
+                DatagramPacket dp=new DatagramPacket(array,l,ip,1500);
+                s.send(dp);
+        }
+}

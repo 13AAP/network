@@ -1,0 +1,45 @@
+import java.io.*;
+import java.net.DatagramPacket; 
+import java.net.DatagramSocket;
+import java.net.*;
+import java.net.SocketException; 
+import java.util.Scanner; 
+public class udpser
+{ 
+	public static void main(String args[]) throws IOException 
+	{       
+        int a=1;
+		Scanner sc = new Scanner(System.in);
+        DatagramSocket ds = new DatagramSocket(2000);
+		byte[] receive = new byte[65535]; 
+ 
+        while (a!=0)
+        {
+            DatagramPacket DpReceive = new DatagramPacket(receive, receive.length);
+            ds.receive(DpReceive);
+            System.out.println("Client:-" + data(receive)); 
+			if (data(receive).toString().equals("bye")) 
+			{
+                    a=0;
+            }
+            receive = new byte[65535];
+
+        }
+
+    }
+
+ public static StringBuilder data(byte[] a) 
+	{ 
+		if (a == null) 
+		 	return null; 
+		StringBuilder ret = new StringBuilder(); 
+		int i = 0; 
+		while (a[i] != 0) 
+		{ 
+			ret.append((char) a[i]); 
+			i++; 
+		} 
+		return ret; 
+	} 
+} 
+   
